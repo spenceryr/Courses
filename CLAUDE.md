@@ -23,6 +23,12 @@ When running a lesson you READ and WRITE learner state under the data dir; you N
 learner's progress into the repo. The exact read/seed/write steps live in each course's
 `lesson.md`.
 
+**If the data dir is a git checkout** (e.g. a cloud or mobile session, where the machine is
+wiped afterwards and `COURSES_DATA_DIR` points at a private progress repo), `git pull` it
+before reading state, and after the end-of-session writes commit and push it — that push is
+what makes the session's progress survive. If the push fails, say so plainly; never report
+progress as saved when it isn't.
+
 ## Running a course (any Claude front-end)
 
 To run a course, read `<course>/.claude/commands/lesson.md` and follow it exactly, using the
